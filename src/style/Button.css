@@ -1,0 +1,24 @@
+.button {
+    width: 100%;
+    margin-top: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    border: none;
+    padding: 8px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #835afd;
+    color: #fff;
+    font-weight: 500;
+}
+
+.button:not(:disabled):hover {
+    filter: brightness(0.9);
+}
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

@@ -1,0 +1,67 @@
+INTRODUÇÃO
+
+//comandos para criar um app react para começar o projeto
+npm create-react-app NOME-DO-APP
+yarn create-react-app NOME-DO-APP
+
+o primeiro arquivo a ser chamdo no React é o index.html depois o index.js ou index.ts de lá o React vai fazer as demais importações e criar os componentes que existirem.
+
+HTML dentro do JS se chama JSX que é Javascript XML
+
+Componentes: são funções que retornam HTML para ser reendenizado pelo ReactDom
+
+Name exported: diferente da importação comum em que se usa export defaul COMPONENETE no final do arquivo nessa exportação vc coloca export a frente da função que cria o compornente e na hora de importar precisa expecificar oq está importanto ex: import {COMPONENTE} from 'rota'
+
+PROPRIEDADES
+Propriedades no React funçionam como os atributos do HTML em que esssas propriedades alteram o comportamento do componente, essas propriedades podem receber qualquer tipo de valor do JS
+
+Para inserir um JS dentro do JSX sempre se usa chaves ex: <button>{prots.text}</button>
+
+(
+    NOTA DE TAYPESCRIPT
+    type buttonProps = {
+        text: string "ou" Array<string>
+    }
+
+    function Button(props: buttonProps) {}
+)
+
+ESTADO
+É uma informação mantida por um componente do React
+
+Para manipular estados deve sempre declarar as variaveis como constantes e fazer a desestruturação do retorno da função useState ex:
+
+const [counter, setCounter] = useState(VALOR INICIAL DO ESTADO)
+
+Dessa forma o retorno da função que é um array é dividido e passado nas constantes
+
+para mudar o estado do componente a função precisa ser chamada com o novo valor que queremos que o componente tenha
+
+COMPONENTES
+os arquivos de criação dos componentes sempre precisam ter a primeira letra maiuscula ex: Home.jsx, Home.tsx, Interna.jsx, Interna.tsx isso acontece pq no React para fazer a chamada de um componente no jsx a tag tem letra maiuscula ex: <Home/> por causa disso isso é obrigatório
+
+ROTAS
+para permitir a criação de rotas instalar o pacote react-router-dom ex de uso:
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+
+para navegar entre links usar o useNavigate do react-router-dom ex de uso:
+    const navigate = useNavigate();
+    navigate('link/page')
+
+para navegar entre links tbm é possível usar o Link de react-router-dom ex de uso:
+    import {Link} from 'react-router-dom'
+    <Link to="/">clique aqui</Link>
+
+CONTEXTOS
+contexto no React é uma forma de compartilhar informação entre 2 ou mais componentes
+ex de uso:
+
+    import {createContext} from 'react'
+    export const TestContext = createContext('')
+
+    <TestContext.Provider value={'Teste'}> //todas as rotas dentro desse componente conseguirá ler o value desse componente
+    </TestContext.Provider>
